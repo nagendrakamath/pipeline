@@ -35,7 +35,7 @@ env:
   AWS_REGION: us-west-1                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: codepipeline           # set this to your Amazon ECR repository name
   ECS_SERVICE: codepipeline                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: codepipeline                 # set this to your Amazon ECS cluster name
+  ECS_CLUSTER: codepipeline1                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: codepipeline # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: codepipeline           # set this to the name of the container in the
@@ -47,7 +47,7 @@ permissions:
 jobs:
   deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu:latest
     environment: production
 
     steps:
