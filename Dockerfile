@@ -3,9 +3,7 @@ FROM ubuntu:latest
 # Install dependencies
 RUN apt-get update && \
  apt-get -y install apache2 && \
- apt install mysql-server -y && \
- systemctl start mysql && \
- systemctl enable mysql
+ apt install mysql-server -y
  
 # Install apache and write hello world message
 RUN echo 'Hello World!' > /var/www/html/index.html
