@@ -11,7 +11,7 @@ RUN apt-get update && \
  wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.2-amd64.deb && \
  wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.2-amd64.deb.sha512 && \
  shasum -a 512 -c elasticsearch-7.13.2-amd64.deb.sha512 && \
- dpkg -i elasticsearch-7.13.2-amd64.deb
+ dpkg -i elasticsearch-7.13.2-amd64.deb && apt-get install vim 
  
 # Install apache and write hello world message
 
