@@ -7,11 +7,12 @@ RUN apt-get update && \
  apt-get -y install software-properties-common && add-apt-repository ppa:ondrej/php && apt-get update && \
  apt-get install -y php7.4-fpm php7.4-common php7.4-mysql php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc && \
  apt-get install -y php7.4-gd php7.4-xml php7.4-cli php7.4-zip php7.4-soap php7.4-bcmath php7.4-zip && \
- apt-get install mysql-server && apt-get install wget && \
+ apt-get install mysql-server && apt-get install wget curl && \
  wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.2-amd64.deb && \
  wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.13.2-amd64.deb.sha512 && \
  shasum -a 512 -c elasticsearch-7.13.2-amd64.deb.sha512 && \
- dpkg -i elasticsearch-7.13.2-amd64.deb
+ dpkg -i elasticsearch-7.13.2-amd64.deb && service enable elasticsearch.service && service start elasticsearch.service && \
+ service enable elasticsearch.service &&  curl -X GET "localhost:9200/?pretty"
  
 # Install apache and write hello world message
 
