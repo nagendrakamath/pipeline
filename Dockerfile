@@ -2,6 +2,7 @@ FROM ubuntu:latest
 
 # Install dependencies
 RUN apt-get update && \
+ ln -snf /usr/share/zoneinfo/$CONTAINER_TIMEZONE /etc/localtime && echo $CONTAINER_TIMEZONE > /etc/timezone && \
  apt-get -y install nginx && apt install mysql-server -y && apt-get install -y unzip zip p7zip-full p7zip-rar && \
  apt-get -y install software-properties-common && add-apt-repository ppa:ondrej/php && apt-get update && \
  apt-get install -y php7.4-fpm php7.4-common php7.4-mysql php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc && \
